@@ -1,4 +1,4 @@
-# LightWeitghProject
+# Light Weitgh Project
 
 > Ideia de plataforma para treinos e tracking de progessão na academia.
 > 
