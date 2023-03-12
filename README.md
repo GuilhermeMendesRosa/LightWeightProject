@@ -28,8 +28,8 @@
 ## Funcionalidades
 
 - Criar usuários
-- Criar, editar e excluir `TrainingRoutines`
-- Criar, editar e excluir `TrainningSessions`
+- Criar, editar e excluir `WorkoutRoutines`
+- Criar, editar e excluir `WorkoutSessions`
 - Criar e excluir `Goals`
 
 ## Modelagem
@@ -40,20 +40,20 @@
 - Terá um agrupamento muscular (Será uma ENUM)
 - Terá um campo de PR (Personal Record)
 
-### Training Routine
+### Workout Routine
 
 - Ideia de uma rotina de treino para um dia em específico. Ex: treino de peito e triceps
-- Todo `TrainingRoutine` vai ser composto por um número X de exercícios e uma quantidade Y de series
-- Teremos a ideia de progressão de carga, para isso teremos que consultar a `TrainningSession`, buscando os melhores desempenhos nos exercícios registrados pelo usuário por `Exercise`
+- Todo `WorkoutRoutine` vai ser composto por um número X de exercícios e uma quantidade Y de series
+- Teremos a ideia de progressão de carga, para isso teremos que consultar a `WorkoutSession`, buscando os melhores desempenhos nos exercícios registrados pelo usuário por `Exercise`
 - Será relacionado um `User`
 
-### Trainning Session
+### Workout Session
 
-- Ideia da execução de uma `TrainningRoutine`, toda `TrainningRoutine` pode ser executada diversas vezes
+- Ideia da execução de uma `WorkoutRoutine`, toda `WorkoutRoutine` pode ser executada diversas vezes
 - Terá um tempo de execução da sessão. Ex: treino de hoje = 55 minutos
 - Terá uma quantidade X de repetições por `Exercise`
 - Terá uma quantidade de carga por `Exercise`
-- Terá uma `TrainningRoutine` associada
+- Terá uma `WorkoutRoutine` associada
 - Será relacionado um `User`
 
 ### Goals

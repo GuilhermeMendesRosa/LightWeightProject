@@ -1,4 +1,4 @@
-package br.com.LightWeightAPI.domain.Exercise;
+package br.com.LightWeightAPI.domain.exercise;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

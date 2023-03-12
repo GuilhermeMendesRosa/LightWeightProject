@@ -1,8 +1,8 @@
 package br.com.LightWeightAPI.controller;
 
-import br.com.LightWeightAPI.domain.Exercise.ExerciseDTO;
-import br.com.LightWeightAPI.domain.Exercise.ExerciseService;
-import br.com.LightWeightAPI.domain.Exercise.MuscularGroupEnum;
+import br.com.LightWeightAPI.domain.exercise.ExerciseDTO;
+import br.com.LightWeightAPI.domain.exercise.ExerciseService;
+import br.com.LightWeightAPI.domain.exercise.MuscularGroupEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/trainning-routine")
-public class TrainningRoutineController {
+@RequestMapping("/workout-routine")
+public class WorkoutRoutineController {
 
     @Autowired
     private ExerciseService exerciseService;

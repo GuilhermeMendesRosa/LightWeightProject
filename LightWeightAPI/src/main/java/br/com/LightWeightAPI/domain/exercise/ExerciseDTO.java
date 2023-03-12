@@ -1,4 +1,4 @@
-package br.com.LightWeightAPI.domain.Exercise;
+package br.com.LightWeightAPI.domain.exercise;
 
 import lombok.Getter;
 import lombok.Setter;
