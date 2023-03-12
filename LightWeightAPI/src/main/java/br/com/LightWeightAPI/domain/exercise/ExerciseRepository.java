@@ -8,4 +8,6 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
 
     List<Exercise> findByMuscularGroup(MuscularGroupEnum muscularGroup);
 
+    Exercise findByName(String exerciseName);
+
 }

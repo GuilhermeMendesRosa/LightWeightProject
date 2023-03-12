@@ -20,4 +20,7 @@ public class ExerciseService {
         return exerciseDTOS;
     }
 
+    public Exercise findByName(String exerciseName) {
+       return this.exerciseRepository.findByName(exerciseName);
+    }
 }
