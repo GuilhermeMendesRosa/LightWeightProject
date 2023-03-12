@@ -1,6 +1,7 @@
 package br.com.LightWeightAPI.domain.workoutcompound;
 
 import br.com.LightWeightAPI.domain.exercise.Exercise;
+import br.com.LightWeightAPI.domain.workout.Workout;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,5 +23,8 @@ public class WorkoutCompound {
     private Exercise exercise;
     private Integer series;
     private Integer reps;
+    @ManyToOne
+    @JoinColumn(name="workout_id", nullable=false)
+    private Workout workout;
 
 }
