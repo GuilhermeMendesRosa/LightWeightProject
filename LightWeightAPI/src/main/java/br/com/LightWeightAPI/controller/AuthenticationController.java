@@ -5,6 +5,7 @@ import br.com.LightWeightAPI.domain.user.UserDTO;
 import br.com.LightWeightAPI.domain.user.UserService;
 import br.com.LightWeightAPI.infra.security.TokenDTO;
 import br.com.LightWeightAPI.infra.security.TokenService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,7 @@ public class AuthenticationController {
     private UserService userService;
 
     @PostMapping("/create")
+    @Transactional
     public ResponseEntity createUser(@Valid @RequestBody UserDTO userDTO) {
         User user = this.userService.createUser(userDTO);
 

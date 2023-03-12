@@ -37,7 +37,7 @@ public class TokenService {
     public String getSubject(String tokenJWT) {
         Algorithm algorithm = Algorithm.HMAC256(secret);
         String subject = JWT.require(algorithm)
-                .withIssuer("Voll.med")
+                .withIssuer("LightWeight")
                 .build()
                 .verify(tokenJWT)
                 .getSubject();
