@@ -36,16 +36,12 @@ public class SecurityConfigurations {
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        AuthenticationManager authenticationManager = authenticationConfiguration.getAuthenticationManager();
-
-        return authenticationManager;
+        return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-
-        return bCryptPasswordEncoder;
+        return new BCryptPasswordEncoder();
     }
 
 }

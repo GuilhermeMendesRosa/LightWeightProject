@@ -24,7 +24,11 @@ public class WorkoutService {
     @Autowired
     private ExerciseService exerciseService;
 
-    public WorkoutDTO findById(Long id) {
+    public Workout findById(Long id) {
+        return this.workoutRepository.findWorkoutById(id);
+    }
+
+    public WorkoutDTO getWorkoutDTOById(Long id) {
         Workout workout = this.workoutRepository.findWorkoutById(id);
         List<WorkoutCompound> workoutCompounds = this.workoutCompoundRepository.findByWorkoutId(id);
 
@@ -39,7 +43,7 @@ public class WorkoutService {
         List<WorkoutDTO> workoutDTOS = new ArrayList<>();
 
         workoutIds.forEach(id -> {
-            workoutDTOS.add(findById(id));
+            workoutDTOS.add(getWorkoutDTOById(id));
         });
 
         return workoutDTOS;
