@@ -15,4 +15,15 @@ public class WorkoutSessionDTO implements Serializable {
     private Long duration;
     private Date date;
 
+    public WorkoutSessionDTO() {
+
+    }
+
+    public WorkoutSessionDTO(WorkoutSession workoutSession) {
+        this.userId = workoutSession.getId();
+        this.workoutId = workoutSession.getWorkout().getId();
+        this.duration = workoutSession.getDuration();
+        this.date = workoutSession.getDate();
+    }
+
 }

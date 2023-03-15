@@ -34,4 +34,9 @@ public class WorkoutSessionService {
         return workoutSession;
     }
 
+    public WorkoutSessionDTO findById(Long id) {
+        WorkoutSessionDTO workoutSessionDTO = this.repository.findWorkoutSessionDTO(id);
+
+        return workoutSessionDTO;
+    }
 }
