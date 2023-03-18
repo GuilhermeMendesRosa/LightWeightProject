@@ -10,4 +10,6 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
 
     Exercise findByName(String exerciseName);
 
+    Exercise findExerciseById(Long exercise);
+
 }

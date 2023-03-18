@@ -23,4 +23,8 @@ public class ExerciseService {
     public Exercise findByName(String exerciseName) {
        return this.exerciseRepository.findByName(exerciseName);
     }
+
+    public Exercise findExerciseById(Long id) {
+        return this.exerciseRepository.findExerciseById(id);
+    }
 }

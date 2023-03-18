@@ -49,7 +49,7 @@ public class WorkoutService {
         return workoutDTOS;
     }
 
-    public void create(WorkoutDTO workoutDTO) {
+    public Workout create(WorkoutDTO workoutDTO) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         Workout workout = new Workout();
@@ -70,5 +70,6 @@ public class WorkoutService {
             this.workoutCompoundRepository.save(workoutCompound);
         });
 
+        return workout;
     }
 }
