@@ -63,5 +63,5 @@
 - Será relacionado um `User`
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/83733948/226144952-186143c3-a239-4efd-b0d5-30c546cb865c.png">
+  <img src="https://user-images.githubusercontent.com/83733948/226145055-297592db-1651-443a-a697-a1b85bae6c2f.png">
 </div>
