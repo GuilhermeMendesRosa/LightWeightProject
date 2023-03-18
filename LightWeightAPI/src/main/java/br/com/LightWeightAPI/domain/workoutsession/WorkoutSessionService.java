@@ -1,10 +1,9 @@
 package br.com.LightWeightAPI.domain.workoutsession;
 
-import br.com.LightWeightAPI.domain.user.User;
 import br.com.LightWeightAPI.domain.workout.Workout;
 import br.com.LightWeightAPI.domain.workout.WorkoutService;
+import br.com.LightWeightAPI.infra.utils.LightWeightUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -21,10 +20,9 @@ public class WorkoutSessionService {
     public WorkoutSession create(WorkoutSessionDTO workoutSessionDTO) {
         WorkoutSession workoutSession = new WorkoutSession();
 
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Workout workout = this.workoutService.findById(workoutSessionDTO.getWorkoutId());
 
-        workoutSession.setUser(user);
+        workoutSession.setUser(LightWeightUtils.getLoggedUser());
         workoutSession.setWorkout(workout);
         workoutSession.setDuration(workoutSessionDTO.getDuration());
         workoutSession.setDate(new Date());

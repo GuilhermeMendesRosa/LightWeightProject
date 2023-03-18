@@ -1,13 +1,12 @@
 package br.com.LightWeightAPI.controller;
 
-import br.com.LightWeightAPI.domain.user.User;
 import br.com.LightWeightAPI.domain.workout.Workout;
 import br.com.LightWeightAPI.domain.workout.WorkoutDTO;
 import br.com.LightWeightAPI.domain.workout.WorkoutService;
+import br.com.LightWeightAPI.infra.utils.LightWeightUtils;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -30,8 +29,7 @@ public class WorkoutController {
 
     @GetMapping("/find")
     public ResponseEntity findWorkoutByUser() {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Long userId = user.getId();
+        Long userId = LightWeightUtils.getLoggedUser().getId();
 
         List<WorkoutDTO> workoutDTOS = this.workoutService.findByUserId(userId);
 

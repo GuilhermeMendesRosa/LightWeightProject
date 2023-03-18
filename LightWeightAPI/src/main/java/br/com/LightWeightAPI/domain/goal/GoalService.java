@@ -1,9 +1,8 @@
 package br.com.LightWeightAPI.domain.goal;
 
 import br.com.LightWeightAPI.domain.exercise.ExerciseService;
-import br.com.LightWeightAPI.domain.user.User;
+import br.com.LightWeightAPI.infra.utils.LightWeightUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,11 +15,9 @@ public class GoalService {
     private ExerciseService exerciseService;
 
     public Goal create(GoalDTO goalDTO) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
         Goal goal = new Goal();
 
-        goal.setUser(user);
+        goal.setUser(LightWeightUtils.getLoggedUser());
         goal.setExercise(this.exerciseService.findExerciseById(goalDTO.getExerciseId()));
         goal.setWeight(goalDTO.getWeight());
 

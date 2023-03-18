@@ -22,11 +22,11 @@ public class WorkoutSession {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable=false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "workout_id", nullable=false)
+    @JoinColumn(name = "workout_id", nullable = false)
     private Workout workout;
 
     private Long duration;

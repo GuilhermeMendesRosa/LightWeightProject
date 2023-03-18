@@ -5,6 +5,7 @@ import br.com.LightWeightAPI.domain.exercise.ExerciseService;
 import br.com.LightWeightAPI.domain.user.User;
 import br.com.LightWeightAPI.domain.workoutcompound.WorkoutCompound;
 import br.com.LightWeightAPI.domain.workoutcompound.WorkoutCompoundRepository;
+import br.com.LightWeightAPI.infra.utils.LightWeightUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -50,12 +51,10 @@ public class WorkoutService {
     }
 
     public Workout create(WorkoutDTO workoutDTO) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
         Workout workout = new Workout();
         workout.setName(workoutDTO.getName());
         workout.setDescription(workoutDTO.getDescription());
-        workout.setUser(user);
+        workout.setUser(LightWeightUtils.getLoggedUser());
 
         this.workoutRepository.save(workout);
 
