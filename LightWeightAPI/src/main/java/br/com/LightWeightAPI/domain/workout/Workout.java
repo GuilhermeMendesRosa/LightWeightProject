@@ -18,7 +18,7 @@ public class Workout {
     @Column(insertable = false, updatable = false)
     private Long id;
     @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
     private String name;
     private String description;

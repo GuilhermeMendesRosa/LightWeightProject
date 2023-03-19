@@ -19,12 +19,12 @@ public class WorkoutCompound {
     @Column(insertable = false, updatable = false)
     private Long id;
     @ManyToOne
-    @JoinColumn(name="exercise_id", nullable=false)
+    @JoinColumn(name = "exercise_id", nullable = false)
     private Exercise exercise;
     private Integer series;
     private Integer reps;
     @ManyToOne
-    @JoinColumn(name="workout_id", nullable=false)
+    @JoinColumn(name = "workout_id", nullable = false)
     private Workout workout;
 
 }

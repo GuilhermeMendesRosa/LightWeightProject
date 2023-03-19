@@ -10,7 +10,6 @@ import java.io.Serializable;
 public class GoalDTO implements Serializable {
 
     private Long userId;
-
     private Long exerciseId;
     private Double weight;
 

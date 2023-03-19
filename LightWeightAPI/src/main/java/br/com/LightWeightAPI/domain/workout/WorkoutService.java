@@ -60,7 +60,7 @@ public class WorkoutService {
                 .map(WorkoutCompoundDTO::getExerciseName)
                 .toList();
 
-        List<Exercise> exercises = this.exerciseService.findByListName(exerciseNames);
+        List<Exercise> exercises = this.exerciseService.findByNameList(exerciseNames);
 
         List<WorkoutCompoundDTO> workoutCompoundsDTOs = workoutDTO.getWorkoutCompoundsDTOs();
         for (WorkoutCompoundDTO compoundDTO : workoutCompoundsDTOs) {

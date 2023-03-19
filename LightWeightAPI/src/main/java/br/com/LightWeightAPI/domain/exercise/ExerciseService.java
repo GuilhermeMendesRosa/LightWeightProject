@@ -21,11 +21,11 @@ public class ExerciseService {
     }
 
     public Exercise findByName(String exerciseName) {
-       return this.exerciseRepository.findByName(exerciseName);
+        return this.exerciseRepository.findByName(exerciseName);
     }
 
-    public List<Exercise> findByListName(List<String> exerciseNames) {
-        return this.exerciseRepository.findByListName(exerciseNames);
+    public List<Exercise> findByNameList(List<String> exerciseNames) {
+        return this.exerciseRepository.findByNameList(exerciseNames);
     }
 
     public Exercise findExerciseById(Long id) {

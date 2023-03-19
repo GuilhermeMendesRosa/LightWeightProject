@@ -6,19 +6,16 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 @Getter
 @Setter
 public class WorkoutCompoundDTO implements Serializable {
 
-
     @NotBlank
     private String exerciseName;
     private Integer series;
     private Integer reps;
-
     @NotNull
     private MuscularGroupEnum muscularGroup;
 

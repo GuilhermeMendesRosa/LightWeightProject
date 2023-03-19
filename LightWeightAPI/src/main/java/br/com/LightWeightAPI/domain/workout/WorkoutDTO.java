@@ -19,13 +19,11 @@ public class WorkoutDTO implements Serializable {
     @NotBlank
     private String name;
     private String description;
-
     @NotEmpty
     @Valid
     private List<WorkoutCompoundDTO> workoutCompoundsDTOs;
 
     public WorkoutDTO() {
-
     }
 
     public WorkoutDTO(List<WorkoutCompound> workoutCompounds) {

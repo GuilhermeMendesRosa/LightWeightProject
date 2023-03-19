@@ -16,7 +16,6 @@ public class WorkoutSessionDTO implements Serializable {
     private Date date;
 
     public WorkoutSessionDTO() {
-
     }
 
     public WorkoutSessionDTO(WorkoutSession workoutSession) {

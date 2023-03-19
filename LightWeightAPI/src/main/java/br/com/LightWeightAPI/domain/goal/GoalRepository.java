@@ -9,4 +9,5 @@ public interface GoalRepository extends JpaRepository<Goal, Long> {
 
     @Query("SELECT new br.com.LightWeightAPI.domain.goal.GoalDTO(g) FROM Goal g WHERE g.id = :id")
     GoalDTO findGoalDTOById(Long id);
+
 }

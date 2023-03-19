@@ -14,5 +14,5 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
     Exercise findExerciseById(Long exercise);
 
     @Query("SELECT e FROM Exercise e WHERE e.name in :exerciseNames")
-    List<Exercise> findByListName(List<String> exerciseNames);
+    List<Exercise> findByNameList(List<String> exerciseNames);
 }

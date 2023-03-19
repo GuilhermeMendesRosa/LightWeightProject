@@ -30,7 +30,7 @@ public class AuthenticationController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/create")
+    @PostMapping("/create-user")
     @Transactional
     public ResponseEntity createUser(@Valid @RequestBody UserDTO userDTO) {
         User user = this.userService.createUser(userDTO);

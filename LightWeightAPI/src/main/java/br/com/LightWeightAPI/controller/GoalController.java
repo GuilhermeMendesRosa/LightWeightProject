@@ -22,10 +22,10 @@ public class GoalController {
     @Transactional
     public ResponseEntity create(@RequestBody GoalDTO goalDTO, UriComponentsBuilder uriComponentsBuilder) {
         Goal goal = this.goalService.create(goalDTO);
+        goalDTO = new GoalDTO(goal);
 
         URI uri = uriComponentsBuilder.path("/workout/{id}").buildAndExpand(goal.getId()).toUri();
-        goalDTO = new GoalDTO(goal);
-        
+
         return ResponseEntity.created(uri).body(goalDTO);
     }
 
