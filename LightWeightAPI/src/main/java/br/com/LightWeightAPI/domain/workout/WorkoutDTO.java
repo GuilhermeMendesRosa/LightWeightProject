@@ -28,9 +28,11 @@ public class WorkoutDTO implements Serializable {
 
     }
 
-    public WorkoutDTO(Workout workout, List<WorkoutCompound> workoutCompounds) {
+    public WorkoutDTO(List<WorkoutCompound> workoutCompounds) {
+        Workout workout = workoutCompounds.get(0).getWorkout();
         this.name = workout.getName();
         this.description = workout.getDescription();
+
         this.workoutCompoundsDTOs = workoutCompounds.stream().map(WorkoutCompoundDTO::new).toList();
     }
 

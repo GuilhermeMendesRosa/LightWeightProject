@@ -22,7 +22,7 @@ public class WorkoutController {
 
     @GetMapping("/{id}")
     public ResponseEntity findWorkout(@PathVariable Long id) {
-        WorkoutDTO workoutDTO = this.workoutService.getWorkoutDTOById(id);
+        WorkoutDTO workoutDTO = this.workoutService.findWorkoutDTOById(id);
 
         return ResponseEntity.ok(workoutDTO);
     }
