@@ -1,16 +1,13 @@
 # Light Weitgh Project
 
-> Ideia de plataforma para treinos e tracking de progessão na academia.
-> 
-
-> A ideia geral é que seja um App que faz requisiçẽos para uma API Rest salvando os dados de treino do usuário no servidor.
+> Plataforma para treinos e tracking de progessão na academia.
 > 
 
 ---
 
 ## Arquitetura
 
-### Backend
+### Aplicação Backend
 
 - Spring Boot 3
 - Spring Security
@@ -18,6 +15,10 @@
 - Senhas criptografadas com Bcrypt
 - Utilização de Lombok
 - Utilização de Migrations
+
+### Aplicação Frontend
+
+- Angular 14
 
 ### Aplicativo
 
