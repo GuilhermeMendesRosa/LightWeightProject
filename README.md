@@ -18,7 +18,9 @@
 
 ### Aplicação Frontend
 
+
 - Angular 14
+- Bootstrap
 
 ### Aplicativo
 
