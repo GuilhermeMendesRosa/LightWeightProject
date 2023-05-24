@@ -8,7 +8,12 @@ import { Workout } from 'src/app/model/workout';
 })
 export class WorkoutCardComponent implements OnInit {
 
-  @Input() workout: Workout | undefined;
+  @Input() workout: Workout = {
+    id: 0,
+    name: "",
+    description: "",
+    compounds: []
+  };
 
   constructor() { }
 

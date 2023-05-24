@@ -8,38 +8,16 @@ import { Workout } from 'src/app/model/workout';
 })
 export class WorkoutComponent implements OnInit {
 
-  @Input() workout: Workout | undefined;
+  @Input() workout: Workout = {
+    id: 0,
+    name: "",
+    description: "",
+    compounds: []
+  };
 
   constructor() { }
 
   ngOnInit(): void {
-    this.workout =       {
-      name: "Treino de Peito",
-      description: "treino focado em peitoral inferior",
-      compounds: [
-        {
-          exercise: "supino reto",
-          reps: 12,
-          series: 4
-        },
-        {
-          exercise: "supino inclinado com halteres",
-          reps: 12,
-          series: 4
-        },
-        {
-          exercise: "voador",
-          reps: 12,
-          series: 4
-        },
-        {
-          exercise: "crossover",
-          reps: 12,
-          series: 4
-        }
-
-      ]
-    }
   }
 
 }
