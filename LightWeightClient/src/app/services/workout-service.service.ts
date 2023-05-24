@@ -18,4 +18,8 @@ export class WorkoutService {
   getById(id: string | null): Observable<Workout> {
     return this.http.get<Workout>(this.baseUrl + "/" + id);
   }
+
+  create(workout: Workout) {
+    return this.http.post<Workout>(this.baseUrl, workout);
+  }
 }

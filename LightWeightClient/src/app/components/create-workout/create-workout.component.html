@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="form-container">
+        <h2>Criar treino</h2>
+        <form>
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="nome" placeholder="Digite o seu nome" [(ngModel)]="name"
+              name="name">
+          </div>
+          <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição:</label>
+            <textarea class="form-control" id="descricao" rows="2" placeholder="Digite a descrição"
+              [(ngModel)]="description" name="description"></textarea>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="button" (click)="addCompound()" class="btn btn-primary px-4 m-2">Adicionar exercicio</button>
+          </div>
+          <div class="compounds">
+            <div *ngFor="let compound of compounds">
+              <form>
+                <hr>
+                <div class="row mb-3">
+                  <div class="col-6">
+                    <label for="exercise" class="form-label">Exercício</label>
+                    <input type="text" class="form-control" id="exercise" placeholder="Nome do exercício"
+                      [(ngModel)]="compound.exercise" name="exercise">
+                  </div>
+                  <div class="col-3">
+                    <label for="reps" class="form-label">Repetições</label>
+                    <input type="number" class="form-control" id="reps" placeholder="Repetições" min="1" max="10"
+                      [(ngModel)]="compound.reps" name="reps">
+                  </div>
+                  <div class="col-3">
+                    <label for="series" class="form-label">Séries</label>
+                    <input type="number" class="form-control" id="series" placeholder="Séries" min="1" max="10"
+                      [(ngModel)]="compound.series" name="series">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button (click)="create()" class="btn btn-primary px-4 m-2">Criar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
