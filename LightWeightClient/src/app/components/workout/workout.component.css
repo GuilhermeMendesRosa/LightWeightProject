@@ -1,0 +1,42 @@
+.container {
+  background-color: #121212;
+  padding: 20px;
+}
+
+.text-light {
+  color: #fff;
+  text-align: center;
+}
+
+.text-light h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.text-light p {
+  margin-bottom: 0;
+}
+
+.compounds {
+  margin-top: 20px;
+}
+
+.compounds app-compound {
+  margin-bottom: 10px;
+}
+
+/* Estilos de animação */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: fadeIn 0.5s ease-in-out;
+}
