@@ -6,12 +6,16 @@ import { Workout } from './../model/workout';
 @Injectable({
   providedIn: 'root'
 })
-export class WorkoutServiceService {
+export class WorkoutService {
   private baseUrl = 'http://localhost:3000/workouts';
 
   constructor(private http: HttpClient) { }
 
   list(): Observable<Workout[]> {
     return this.http.get<Workout[]>(this.baseUrl);
+  }
+
+  getById(id: string | null): Observable<Workout> {
+    return this.http.get<Workout>(this.baseUrl + "/" + id);
   }
 }

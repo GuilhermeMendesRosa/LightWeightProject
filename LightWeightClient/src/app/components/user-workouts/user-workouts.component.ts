@@ -1,4 +1,4 @@
-import { WorkoutServiceService } from 'src/app/services/workout-service.service';
+import { WorkoutService } from 'src/app/services/workout-service.service';
 import { Workout } from './../../model/workout';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +11,7 @@ export class UserWorkoutsComponent implements OnInit {
 
   workouts: Workout[] = [];
 
-  constructor(private service: WorkoutServiceService) {
+  constructor(private service: WorkoutService) {
   }
 
   ngOnInit(): void {
@@ -21,6 +21,7 @@ export class UserWorkoutsComponent implements OnInit {
   listWorkouts() {
     this.service.list().subscribe((data: any) => {
       this.workouts = data;
+      console.log(data);
     }, (error: any) => {
       console.log(error);
     })

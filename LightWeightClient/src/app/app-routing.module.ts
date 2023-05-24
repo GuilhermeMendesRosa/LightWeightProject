@@ -9,7 +9,7 @@ const routes: Routes = [
     component: UserWorkoutsComponent
   },
   {
-    path: "workout",
+    path: "workout/:id",  // Adicionando o parâmetro ':id' na rota
     component: WorkoutComponent
   },
 ];
