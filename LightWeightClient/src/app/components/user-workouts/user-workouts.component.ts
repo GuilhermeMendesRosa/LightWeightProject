@@ -27,4 +27,8 @@ export class UserWorkoutsComponent implements OnInit {
     })
   }
 
+  refreshWorkouts() {
+    this.listWorkouts();
+  }
+
 }

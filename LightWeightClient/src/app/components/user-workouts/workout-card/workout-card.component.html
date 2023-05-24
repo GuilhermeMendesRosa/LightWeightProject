@@ -1,5 +1,5 @@
-<a routerLink="/workout/{{ workout.id }}" class="card-link">
-  <div class="card p-3 m-3 lw-card">
+<div class="card p-3 m-3 lw-card">
+  <a routerLink="/workout/{{ workout.id }}" class="card-link">
     <div class="card-body">
       <div class="card-title text-center">
         <h3>{{ workout.name }}</h3>
@@ -8,5 +8,8 @@
         {{ workout.description }}
       </div>
     </div>
+  </a>
+  <div class="card-actions d-flex justify-content-center m-2">
+    <button type="button" (click)="delete(workout.id)" class="btn btn-danger">Excluir</button>
   </div>
-</a>
+</div>

@@ -5,7 +5,7 @@
   </div>
   <div class="d-flex flex-column align-items-center justify-content-center">
     <div class="workout-card" *ngFor="let workout of workouts">
-      <app-workout-card [workout]="workout"></app-workout-card>
+      <app-workout-card [workout]="workout" (workoutDeleted)="refreshWorkouts()"></app-workout-card>
     </div>
   </div>
 </div>

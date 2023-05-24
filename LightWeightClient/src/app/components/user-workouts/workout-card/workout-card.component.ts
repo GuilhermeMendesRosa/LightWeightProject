@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { Workout } from 'src/app/model/workout';
+import { WorkoutService } from 'src/app/services/workout-service.service';
 
 @Component({
   selector: 'app-workout-card',
@@ -15,9 +17,18 @@ export class WorkoutCardComponent implements OnInit {
     compounds: []
   };
 
-  constructor() { }
+  @Output() workoutDeleted: EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(private service: WorkoutService, private router: Router) {
+  }
 
   ngOnInit(): void {
+  }
+
+  delete(id: number | undefined) {
+    this.service.delete(id).subscribe(result => {
+      this.workoutDeleted.emit();
+    });
   }
 
 }

@@ -22,4 +22,9 @@ export class WorkoutService {
   create(workout: Workout) {
     return this.http.post<Workout>(this.baseUrl, workout);
   }
+
+  delete(id: number | undefined): Observable<Workout> {
+    return this.http.delete<Workout>(this.baseUrl + "/" + id);
+  }
+
 }
