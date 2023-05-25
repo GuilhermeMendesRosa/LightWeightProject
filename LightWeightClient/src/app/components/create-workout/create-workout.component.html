@@ -2,23 +2,24 @@
   <div class="row justify-content-center">
     <div class="col-lg-6">
       <div class="form-container">
-        <h2>Criar treino</h2>
+        <h2 *ngIf="isEdit">Editar Treino</h2>
+        <h2 *ngIf="!isEdit">Criar Treino</h2>
         <form>
           <div class="mb-3">
             <label for="nome" class="form-label">Nome:</label>
-            <input type="text" class="form-control" id="nome" placeholder="Digite o seu nome" [(ngModel)]="name"
+            <input type="text" class="form-control" id="nome" placeholder="Digite o seu nome" [(ngModel)]="workout.name"
               name="name">
           </div>
           <div class="mb-3">
             <label for="descricao" class="form-label">Descrição:</label>
             <textarea class="form-control" id="descricao" rows="2" placeholder="Digite a descrição"
-              [(ngModel)]="description" name="description"></textarea>
+              [(ngModel)]="workout.description" name="description"></textarea>
           </div>
           <div class="d-flex justify-content-center">
             <button type="button" (click)="addCompound()" class="btn btn-primary px-4 m-2">Adicionar exercício</button>
           </div>
           <div class="compounds">
-            <div *ngFor="let compound of compounds" class="compound-form">
+            <div *ngFor="let compound of workout.compounds" class="compound-form">
               <hr>
               <div class="row mb-3">
                 <div class="col-6">
@@ -40,7 +41,8 @@
             </div>
           </div>
           <div class="d-flex justify-content-center">
-            <button (click)="create()" class="btn btn-primary px-4 m-2">Criar</button>
+            <button *ngIf="isEdit" (click)="edit()" class="btn btn-primary px-4 m-2">Editar</button>
+            <button *ngIf="!isEdit" (click)="create()" class="btn btn-primary px-4 m-2">Criar</button>
           </div>
         </form>
       </div>

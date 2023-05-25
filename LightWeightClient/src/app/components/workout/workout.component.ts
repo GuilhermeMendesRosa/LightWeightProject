@@ -39,4 +39,8 @@ export class WorkoutComponent implements OnInit {
     })
   }
 
+  edit(id: number | undefined) {
+
+  }
+
 }

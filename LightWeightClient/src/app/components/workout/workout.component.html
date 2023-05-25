@@ -2,6 +2,7 @@
   <div class="text-light d-flex align-items-center flex-column">
     <h2>{{ workout.name }}</h2>
     <p>{{ workout.description }}</p>
+    <button type="button" routerLink="/edit-workout/{{workout.id}}" class="btn btn-info mt-2">Editar</button>
   </div>
   <div class="compounds">
     <div *ngFor="let workoutCompound of workout?.compounds">

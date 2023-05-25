@@ -1,8 +1,8 @@
 import { WorkoutService } from 'src/app/services/workout-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Workout } from 'src/app/model/workout';
 import { WorkoutCompound } from 'src/app/model/workout-compound';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-workout',
@@ -11,17 +11,38 @@ import { Router } from '@angular/router';
 })
 export class CreateWorkoutComponent implements OnInit {
 
-  name: string = "";
-  description: string = "";
-  compounds: WorkoutCompound[] = [this.createCompound()];
+  workout: Workout = {
+    name: "",
+    description: "",
+    compounds: [this.createCompound()]
+  };
 
-  constructor(private service: WorkoutService, private router: Router) { }
+  isEdit: boolean = false;
+  workoutId: string | null = null;
+
+  constructor(private service: WorkoutService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      if (params.get('id') != null) {
+        this.workoutId = params.get('id');
+        this.isEdit = true
+        this.bindWorkout();
+      }
+    });
+  }
+
+  bindWorkout() {
+    this.service.getById(this.workoutId).subscribe((data: any) => {
+      this.workout = data;
+      console.log(data);
+    }, (error: any) => {
+      console.log(error);
+    })
   }
 
   addCompound() {
-    this.compounds.push(this.createCompound());
+    this.workout.compounds.push(this.createCompound());
   }
 
   createCompound(): WorkoutCompound {
@@ -34,17 +55,15 @@ export class CreateWorkoutComponent implements OnInit {
   }
 
   create() {
-    var workout: Workout = {
-      name: this.name,
-      description: this.description,
-      compounds: this.compounds
-
-    }
-    this.service.create(workout).subscribe(result => {
-      console.log('Workout created successfully:', result);
-      this.router.navigate(['/']); // navigate to main page
+    this.service.create(this.workout).subscribe(result => {
+      this.router.navigate(['/']);
     });
+  }
 
+  edit() {
+    this.service.edit(this.workout).subscribe(result => {
+      this.router.navigate(['/']);
+    });
   }
 
 }

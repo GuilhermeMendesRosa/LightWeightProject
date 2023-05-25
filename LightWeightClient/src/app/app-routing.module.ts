@@ -10,11 +10,15 @@ const routes: Routes = [
     component: UserWorkoutsComponent
   },
   {
-    path: "workout/:id",  // Adicionando o parâmetro ':id' na rota
+    path: "workout/:id",
     component: WorkoutComponent
   },
   {
-    path: "create-workout",  // Adicionando o parâmetro ':id' na rota
+    path: "create-workout",
+    component: CreateWorkoutComponent
+  },
+  {
+    path: "edit-workout/:id",
     component: CreateWorkoutComponent
   },
   {
