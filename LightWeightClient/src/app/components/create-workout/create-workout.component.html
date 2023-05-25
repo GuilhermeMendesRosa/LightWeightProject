@@ -19,23 +19,23 @@
             <button type="button" (click)="addCompound()" class="btn btn-primary px-4 m-2">Adicionar exercício</button>
           </div>
           <div class="compounds">
-            <div *ngFor="let compound of workout.compounds" class="compound-form">
+            <div *ngFor="let compound of workout.compounds; let i = index; trackBy: trackByFn" class="compound-form">
               <hr>
               <div class="row mb-3">
                 <div class="col-6">
                   <label for="exercise" class="form-label">Exercício</label>
                   <input type="text" class="form-control" id="exercise" placeholder="Nome do exercício"
-                    [(ngModel)]="compound.exercise" name="exercise">
+                    [(ngModel)]="compound.exercise" name="{{compound.exercise}}">
                 </div>
                 <div class="col-3">
                   <label for="reps" class="form-label">Repetições</label>
                   <input type="number" class="form-control" id="reps" placeholder="Repetições" min="1" max="10"
-                    [(ngModel)]="compound.reps" name="reps">
+                    [(ngModel)]="compound.reps" name="{{compound.exercise}}.{{compound.reps}}">
                 </div>
                 <div class="col-3">
                   <label for="series" class="form-label">Séries</label>
                   <input type="number" class="form-control" id="series" placeholder="Séries" min="1" max="10"
-                    [(ngModel)]="compound.series" name="series">
+                    [(ngModel)]="compound.series" name="{{compound.exercise}}.{{compound.series}}">
                 </div>
               </div>
             </div>

@@ -54,6 +54,10 @@ export class CreateWorkoutComponent implements OnInit {
     return compound;
   }
 
+  trackByFn(index: number, item: any): any {
+    return item.id; // Supondo que cada item tem uma propriedade 'id' única
+  }
+
   create() {
     this.service.create(this.workout).subscribe(result => {
       this.router.navigate(['/']);
@@ -65,5 +69,4 @@ export class CreateWorkoutComponent implements OnInit {
       this.router.navigate(['/']);
     });
   }
-
 }
