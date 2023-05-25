@@ -11,6 +11,7 @@ import { WorkoutCardComponent } from './components/user-workouts/workout-card/wo
 import { WorkoutComponent } from './components/workout/workout.component';
 import { CompoundComponent } from './components/workout/compound/compound.component';
 import { CreateWorkoutComponent } from './components/create-workout/create-workout.component';
+import { DeleteWorkoutComponent } from './components/delete-workout/delete-workout.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateWorkoutComponent } from './components/create-workout/create-worko
     WorkoutCardComponent,
     WorkoutComponent,
     CompoundComponent,
-    CreateWorkoutComponent
+    CreateWorkoutComponent,
+    DeleteWorkoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,60 +1,6 @@
 {
   "workouts": [
     {
-      "id": 1,
-      "name": "Treino de Peito",
-      "description": "treino focado em peitoral inferior",
-      "compounds": [
-        {
-          "exercise": "supino reto",
-          "reps": 12,
-          "series": 4
-        },
-        {
-          "exercise": "crossove",
-          "reps": 12,
-          "series": 4
-        },
-        {
-          "exercise": "voador",
-          "reps": 12,
-          "series": 4
-        },
-        {
-          "exercise": "crossover",
-          "reps": 12,
-          "series": 4
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Costas",
-      "description": "pra ficar largo atrás",
-      "compounds": [
-        {
-          "exercise": "Remada curvada",
-          "reps": 12,
-          "series": 4
-        },
-        {
-          "exercise": "puxada frontal",
-          "reps": 12,
-          "series": 4
-        },
-        {
-          "exercise": "remada maquina",
-          "reps": 12,
-          "series": 4
-        },
-        {
-          "exercise": "remada cavalinho",
-          "reps": 12,
-          "series": 4
-        }
-      ]
-    },
-    {
       "id": 3,
       "name": "Treino de perna",
       "description": "",
@@ -98,33 +44,6 @@
         },
         {
           "exercise": "Remada alta",
-          "reps": 12,
-          "series": 4
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Treino de Bíceps e Tríceps",
-      "description": "",
-      "compounds": [
-        {
-          "exercise": "Rosca direta",
-          "reps": 12,
-          "series": 4
-        },
-        {
-          "exercise": "Rosca alternada",
-          "reps": 12,
-          "series": 4
-        },
-        {
-          "exercise": "Tríceps testa",
-          "reps": 12,
-          "series": 4
-        },
-        {
-          "exercise": "Tríceps pulley",
           "reps": 12,
           "series": 4
         }

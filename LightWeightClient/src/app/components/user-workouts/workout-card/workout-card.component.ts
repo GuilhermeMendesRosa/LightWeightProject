@@ -25,10 +25,4 @@ export class WorkoutCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  delete(id: number | undefined) {
-    this.service.delete(id).subscribe(result => {
-      this.workoutDeleted.emit();
-    });
-  }
-
 }
