@@ -1,4 +1,4 @@
-# Light Weitgh Project
+# Light Weight Project
 
 > Plataforma para treinos e tracking de progessão na academia.
 > 
