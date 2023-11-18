@@ -27,7 +27,7 @@ public class WorkoutController {
         return ResponseEntity.ok(workoutDTO);
     }
 
-    @GetMapping("/find")
+    @GetMapping()
     public ResponseEntity findWorkoutByUser() {
         Long userId = LightWeightUtils.getLoggedUser().getId();
 
