@@ -14,7 +14,7 @@ export class WorkoutComponent implements OnInit {
     id: 0,
     name: "",
     description: "",
-    compounds: []
+    workoutCompoundsDTOs: []
   };
 
   workoutId: string | null = "";

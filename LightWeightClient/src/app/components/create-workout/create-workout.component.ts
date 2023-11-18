@@ -1,8 +1,10 @@
-import { WorkoutService } from 'src/app/services/workout-service.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { Workout } from 'src/app/model/workout';
-import { WorkoutCompound } from 'src/app/model/workout-compound';
-import { ActivatedRoute, Router } from '@angular/router';
+import {WorkoutService} from 'src/app/services/workout-service.service';
+import {Component, OnInit} from '@angular/core';
+import {Workout} from 'src/app/model/workout';
+import {WorkoutCompound} from 'src/app/model/workout-compound';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ExercisesService} from "../../services/exercises.service";
+import {Exercise} from "../../model/exercise";
 
 @Component({
   selector: 'app-create-workout',
@@ -14,15 +16,23 @@ export class CreateWorkoutComponent implements OnInit {
   workout: Workout = {
     name: "",
     description: "",
-    compounds: [this.createCompound()]
+    workoutCompoundsDTOs: [this.createCompound()]
   };
 
   isEdit: boolean = false;
   workoutId: string | null = null;
+  exercises: Exercise[] = [];
 
-  constructor(private service: WorkoutService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private workoutService: WorkoutService,
+              private exerciseService: ExercisesService,
+              private router: Router,
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    this.exerciseService.list().subscribe(exercises => {
+      this.exercises = exercises;
+    })
     this.route.paramMap.subscribe(params => {
       if (params.get('id') != null) {
         this.workoutId = params.get('id');
@@ -33,7 +43,7 @@ export class CreateWorkoutComponent implements OnInit {
   }
 
   bindWorkout() {
-    this.service.getById(this.workoutId).subscribe((data: any) => {
+    this.workoutService.getById(this.workoutId).subscribe((data: any) => {
       this.workout = data;
       console.log(data);
     }, (error: any) => {
@@ -42,14 +52,15 @@ export class CreateWorkoutComponent implements OnInit {
   }
 
   addCompound() {
-    this.workout.compounds.push(this.createCompound());
+    this.workout.workoutCompoundsDTOs.push(this.createCompound());
   }
 
   createCompound(): WorkoutCompound {
     var compound: WorkoutCompound = {
-      exercise: '',
+      exerciseName: '',
       reps: 0,
-      series: 0
+      series: 0,
+      muscularGroup: ""
     };
     return compound;
   }
@@ -59,13 +70,14 @@ export class CreateWorkoutComponent implements OnInit {
   }
 
   create() {
-    this.service.create(this.workout).subscribe(result => {
-      this.router.navigate(['/']);
+    this.workoutService.create(this.workout).subscribe(result => {
+      this.router.navigate(['/workouts']);
     });
+  console.log(this.workout)
   }
 
   edit() {
-    this.service.edit(this.workout).subscribe(result => {
+    this.workoutService.edit(this.workout).subscribe(result => {
       this.router.navigate(['/']);
     });
   }

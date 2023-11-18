@@ -1,5 +1,6 @@
 export interface WorkoutCompound {
-  exercise: string;
+  exerciseName: string;
   reps: number;
   series: number;
+  muscularGroup: string;
 }

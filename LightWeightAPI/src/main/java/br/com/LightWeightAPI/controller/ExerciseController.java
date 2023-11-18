@@ -19,6 +19,13 @@ public class ExerciseController {
     @Autowired
     private ExerciseService exerciseService;
 
+    @GetMapping()
+    public ResponseEntity list() {
+        List<ExerciseDTO> exercises = this.exerciseService.list();
+
+        return ResponseEntity.ok(exercises);
+    }
+
     @GetMapping("/find/{muscularGroup}")
     public ResponseEntity findExercisesByMuscularGroup(@PathVariable MuscularGroupEnum muscularGroup) {
         List<ExerciseDTO> exercises = this.exerciseService.findByMuscularGroup(muscularGroup);

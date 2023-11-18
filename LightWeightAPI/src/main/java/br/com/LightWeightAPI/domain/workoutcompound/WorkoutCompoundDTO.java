@@ -16,8 +16,8 @@ public class WorkoutCompoundDTO implements Serializable {
     private String exerciseName;
     private Integer series;
     private Integer reps;
-    @NotNull
-    private MuscularGroupEnum muscularGroup;
+//    @NotNull
+//    private MuscularGroupEnum muscularGroup;
 
     public WorkoutCompoundDTO() {
 
@@ -27,7 +27,7 @@ public class WorkoutCompoundDTO implements Serializable {
         this.exerciseName = workoutCompound.getExercise().getName();
         this.series = workoutCompound.getSeries();
         this.reps = workoutCompound.getReps();
-        this.muscularGroup = workoutCompound.getExercise().getMuscularGroup();
+//        this.muscularGroup = workoutCompound.getExercise().getMuscularGroup();
     }
 
 }

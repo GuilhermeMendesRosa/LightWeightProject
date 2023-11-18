@@ -4,5 +4,5 @@ export interface Workout {
   id?: number,
   name: string
   description: string
-  compounds: WorkoutCompound[];
+  workoutCompoundsDTOs: WorkoutCompound[];
 }

@@ -5,7 +5,7 @@
     <button type="button" routerLink="/edit-workout/{{workout.id}}" class="btn btn-info mt-2">Editar</button>
   </div>
   <div class="compounds">
-    <div *ngFor="let workoutCompound of workout?.compounds">
+    <div *ngFor="let workoutCompound of workout?.workoutCompoundsDTOs">
       <app-compound [workoutCompound]="workoutCompound"></app-compound>
     </div>
   </div>

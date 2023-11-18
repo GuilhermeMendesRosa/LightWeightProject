@@ -36,7 +36,7 @@ public class WorkoutController {
         return ResponseEntity.ok(workoutDTOS);
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     @Transactional
     public ResponseEntity createWorkout(@RequestBody WorkoutDTO workoutDTO, UriComponentsBuilder uriComponentsBuilder) {
         Workout workout = this.workoutService.create(workoutDTO);

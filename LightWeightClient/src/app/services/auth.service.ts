@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {getXHRResponse} from "rxjs/internal/ajax/getXHRResponse";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,13 @@ import {getXHRResponse} from "rxjs/internal/ajax/getXHRResponse";
 export class AuthService {
   private baseUrl = '/api';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   doLogin(loginData: any) {
     this.http.post<any>(this.baseUrl + "/login", loginData).subscribe(response => {
       localStorage.setItem("access_token", response['jwt']);
+      this.router.navigate(['/workouts']);
     })
   }
 

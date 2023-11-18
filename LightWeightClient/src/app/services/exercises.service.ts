@@ -1,16 +1,18 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Exercise} from "../model/exercise";
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
-  private baseUrl = '/api';
+export class ExercisesService {
+  private baseUrl = '/api/exercise';
 
   constructor(private http: HttpClient) { }
 
-  doLogin(loginData: any): Observable<any> {
-    return this.http.post<any>(this.baseUrl + "/login", loginData);
+  list(): Observable<Exercise[]> {
+    return this.http.get<Exercise[]>(this.baseUrl);
   }
+
 }

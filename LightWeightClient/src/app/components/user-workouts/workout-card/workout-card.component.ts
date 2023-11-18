@@ -14,7 +14,7 @@ export class WorkoutCardComponent implements OnInit {
     id: 0,
     name: "",
     description: "",
-    compounds: []
+    workoutCompoundsDTOs: []
   };
 
   @Output() workoutDeleted: EventEmitter<void> = new EventEmitter<void>();
