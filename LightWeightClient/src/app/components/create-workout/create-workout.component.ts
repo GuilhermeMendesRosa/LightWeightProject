@@ -78,7 +78,7 @@ export class CreateWorkoutComponent implements OnInit {
 
   edit() {
     this.workoutService.edit(this.workout).subscribe(result => {
-      this.router.navigate(['/']);
+      this.router.navigate(['workouts']);
     });
   }
 }

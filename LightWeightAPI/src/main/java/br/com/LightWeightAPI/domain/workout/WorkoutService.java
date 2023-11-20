@@ -55,10 +55,13 @@ public class WorkoutService {
 
         this.workoutRepository.save(workout);
 
-        List<String> exerciseNames = workoutDTO.getWorkoutCompoundsDTOs()
-                .stream()
-                .map(WorkoutCompoundDTO::getExerciseName)
-                .toList();
+        bindWorkoutCompounds(workout, workoutDTO);
+
+        return workout;
+    }
+
+    private void bindWorkoutCompounds(Workout workout, WorkoutDTO workoutDTO) {
+        List<String> exerciseNames = workoutDTO.getWorkoutCompoundsDTOs().stream().map(WorkoutCompoundDTO::getExerciseName).toList();
 
         List<Exercise> exercises = this.exerciseService.findByNameList(exerciseNames);
 
@@ -72,8 +75,29 @@ public class WorkoutService {
 
             this.workoutCompoundRepository.save(workoutCompound);
         }
+    }
 
-        return workout;
+    public void delete(Long workoutId) {
+        Workout workout = this.workoutRepository.findWorkoutById(workoutId);
+        this.clearWorkoutCompounds(workoutId);
+
+        this.workoutRepository.delete(workout);
+    }
+
+    public void editWorkout(Long workoutId, WorkoutDTO workoutDTO) {
+        Workout workout = this.workoutRepository.findWorkoutById(workoutId);
+        workout.setName(workoutDTO.getName());
+        workout.setDescription(workoutDTO.getDescription());
+
+        this.clearWorkoutCompounds(workoutId);
+        this.bindWorkoutCompounds(workout, workoutDTO);
+    }
+
+    private void clearWorkoutCompounds(Long workoutId) {
+        List<WorkoutCompound> workoutCompounds = this.workoutCompoundRepository.findByWorkoutId(workoutId);
+        for (WorkoutCompound workoutCompound : workoutCompounds) {
+            this.workoutCompoundRepository.delete(workoutCompound);
+        }
     }
 
 }

@@ -24,7 +24,7 @@ export class DeleteWorkoutComponent implements OnInit {
 
   delete() {
     this.service.delete(this.workoutId).subscribe(result => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/workouts']);
     });
   }
 

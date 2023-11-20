@@ -16,6 +16,7 @@ import java.util.List;
 public class WorkoutDTO implements Serializable {
 
 
+    private Long id;
     @NotBlank
     private String name;
     private String description;
@@ -28,6 +29,8 @@ public class WorkoutDTO implements Serializable {
 
     public WorkoutDTO(List<WorkoutCompound> workoutCompounds) {
         Workout workout = workoutCompounds.get(0).getWorkout();
+
+        this.id = workout.getId();
         this.name = workout.getName();
         this.description = workout.getDescription();
 

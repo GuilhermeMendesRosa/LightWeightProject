@@ -25,4 +25,8 @@ export class WorkoutCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  dale() {
+    console.table(this.workout);
+  }
+
 }

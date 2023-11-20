@@ -6,6 +6,7 @@ import br.com.LightWeightAPI.domain.workout.WorkoutService;
 import br.com.LightWeightAPI.infra.utils.LightWeightUtils;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -44,6 +45,23 @@ public class WorkoutController {
         URI uri = uriComponentsBuilder.path("/workout/{id}").buildAndExpand(workout.getId()).toUri();
 
         return ResponseEntity.created(uri).body(workoutDTO);
+    }
+
+    @PutMapping("/{workoutId}")
+    @Transactional
+    public ResponseEntity editWorkout(@RequestBody WorkoutDTO workoutDTO, @PathVariable Long workoutId, UriComponentsBuilder uriComponentsBuilder) {
+        this.workoutService.editWorkout(workoutId, workoutDTO);
+        URI uri = uriComponentsBuilder.path("/workout/{id}").buildAndExpand(workoutId).toUri();
+
+        return ResponseEntity.created(uri).body(workoutDTO);
+    }
+
+    @DeleteMapping("/{workoutId}")
+    @Transactional
+    public ResponseEntity deleteWorkout(@PathVariable Long workoutId) {
+        this.workoutService.delete(workoutId);
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
 
 }
