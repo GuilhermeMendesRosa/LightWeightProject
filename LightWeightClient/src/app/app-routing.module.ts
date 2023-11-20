@@ -5,8 +5,13 @@ import {DeleteWorkoutComponent} from './components/delete-workout/delete-workout
 import {UserWorkoutsComponent} from './components/user-workouts/user-workouts.component';
 import {WorkoutComponent} from './components/workout/workout.component';
 import {LoginComponent} from "./components/login/login.component";
+import {RegisterComponent} from "./components/register/register.component";
 
 const routes: Routes = [
+  {
+    path: "register",
+    component: RegisterComponent
+  },
   {
     path: "login",
     component: LoginComponent

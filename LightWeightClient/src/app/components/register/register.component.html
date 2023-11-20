@@ -3,10 +3,10 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-header">
-          <h2 class="text-center">Login</h2>
+          <h2 class="text-center">Registro</h2>
         </div>
         <div class="card-body">
-          <form>
+          <form #registroForm="ngForm" (ngSubmit)="registerUser()">
             <div class="mb-3">
               <label for="username" class="form-label">Usuário:</label>
               <input type="text" class="form-control" id="username" placeholder="Digite seu usuário" [(ngModel)]="login.login" name="username" required>
@@ -16,12 +16,12 @@
               <input type="password" class="form-control" id="password" placeholder="Digite sua senha" [(ngModel)]="login.password" name="password" required>
             </div>
             <div class="d-grid gap-2">
-              <button type="button" (click)="loginUser()" class="btn btn-primary">Entrar</button>
+              <button type="submit" class="btn btn-primary">Registrar</button>
             </div>
           </form>
         </div>
         <div class="card-footer text-center">
-          <p class="mb-0">Ainda não tem uma conta? <a routerLink="/register">Registre-se</a></p>
+          <p class="mb-0">Já possui uma conta? <a routerLink="/login">Faça login</a></p>
         </div>
       </div>
     </div>

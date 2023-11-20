@@ -14,6 +14,7 @@ import {CreateWorkoutComponent} from './components/create-workout/create-workout
 import {DeleteWorkoutComponent} from './components/delete-workout/delete-workout.component';
 import {LoginComponent} from './components/login/login.component';
 import {AuthInterceptor} from "./auth/auth.interceptor";
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
     CompoundComponent,
     CreateWorkoutComponent,
     DeleteWorkoutComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

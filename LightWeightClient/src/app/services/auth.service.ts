@@ -33,4 +33,10 @@ export class AuthService {
     return "";
   }
 
+  register(loginData: any) {
+    this.http.post<any>(this.baseUrl + "login/create-user", loginData).subscribe(response => {
+      this.router.navigate(['/login']);
+    })
+  }
+
 }
