@@ -4,7 +4,6 @@ import {Workout} from 'src/app/model/workout';
 import {WorkoutCompound} from 'src/app/model/workout-compound';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ExercisesService} from "../../services/exercises.service";
-import {Exercise} from "../../model/exercise";
 
 @Component({
   selector: 'app-create-workout',
@@ -21,7 +20,16 @@ export class CreateWorkoutComponent implements OnInit {
 
   isEdit: boolean = false;
   workoutId: string | null = null;
-  exercises: Exercise[] = [];
+
+  muscularGroups: string[] = ["CHEST", "BACK", "LEGS", "BICEPS", "TRICEPS", "DELTOIDS"];
+  exercisesByGroup: any = {
+    "CHEST": [],
+    "BACK": [],
+    "LEGS": [],
+    "BICEPS": [],
+    "TRICEPS": [],
+    "DELTOIDS": [],
+  }
 
   constructor(private workoutService: WorkoutService,
               private exerciseService: ExercisesService,
@@ -31,7 +39,9 @@ export class CreateWorkoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.exerciseService.list().subscribe(exercises => {
-      this.exercises = exercises;
+      exercises.forEach(exercise => {
+        this.exercisesByGroup[exercise.muscularGroup.toString()].push(exercise);
+      })
     })
     this.route.paramMap.subscribe(params => {
       if (params.get('id') != null) {
@@ -73,7 +83,6 @@ export class CreateWorkoutComponent implements OnInit {
     this.workoutService.create(this.workout).subscribe(result => {
       this.router.navigate(['/workouts']);
     });
-  console.log(this.workout)
   }
 
   edit() {

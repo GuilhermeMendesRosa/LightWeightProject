@@ -13,29 +13,35 @@
             <label for="descricao" class="form-label">Descrição:</label>
             <textarea class="form-control" id="descricao" rows="2" placeholder="Digite a descrição" [(ngModel)]="workout.description" name="description"></textarea>
           </div>
-          <div class="d-flex justify-content-center">
-            <button type="button" (click)="addCompound()" class="btn btn-primary px-4 m-2">Adicionar exercício</button>
-          </div>
           <div class="compounds">
             <div *ngFor="let compound of workout.workoutCompoundsDTOs; let i = index; trackBy: trackByFn" class="compound-form">
               <hr>
               <div class="row mb-3">
-                <div class="col-6">
-                  <label for="exercise{{i}}" class="form-label">Exercício</label>
-                  <select class="form-control" id="exercise{{i}}" [(ngModel)]="compound.exerciseName" name="exercise{{i}}">
-                    <option *ngFor="let exercise of exercises" [value]="exercise.name">{{ exercise.name }}</option>
+                <div class="col-3">
+                  <label for="muscularGroup{{i}}" class="form-label">Músculo</label>
+                  <select class="form-control" id="muscularGroup{{i}}" [(ngModel)]="compound.muscularGroup" name="muscularGroup{{i}}">
+                    <option *ngFor="let muscularGroup of muscularGroups" [value]="muscularGroup">{{ muscularGroup }}</option>
                   </select>
                 </div>
-                <div class="col-3">
+                <div class="col-5">
+                  <label for="exercise{{i}}" class="form-label">Exercício</label>
+                  <select class="form-control" id="exercise{{i}}" [(ngModel)]="compound.exerciseName" name="exercise{{i}}">
+                    <option *ngFor="let exercise of exercisesByGroup[compound.muscularGroup.toString()]" [value]="exercise.name">{{ exercise.name }}</option>
+                  </select>
+                </div>
+                <div class="col-2">
                   <label for="reps" class="form-label">Repetições</label>
                   <input type="number" class="form-control" id="reps" placeholder="Repetições" min="1" max="10" [(ngModel)]="compound.reps" name="{{compound.exerciseName}}.{{compound.reps}}">
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                   <label for="series" class="form-label">Séries</label>
                   <input type="number" class="form-control" id="series" placeholder="Séries" min="1" max="10" [(ngModel)]="compound.series" name="{{compound.exerciseName}}.{{compound.series}}">
                 </div>
               </div>
             </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="button" (click)="addCompound()" class="btn btn-primary px-4 m-2">Adicionar exercício</button>
           </div>
           <div class="d-flex justify-content-center">
             <button *ngIf="isEdit" (click)="edit()" class="btn btn-primary px-4 m-2">Editar</button>
