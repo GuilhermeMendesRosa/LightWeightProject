@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   HttpInterceptor,
   HttpHandler,
@@ -6,14 +6,15 @@ import {
   HttpEvent,
   HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
+import {Observable, throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
+import {AuthService} from '../services/auth.service';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   intercept(
     request: HttpRequest<any>,
@@ -33,6 +34,7 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 403) {
           // Redirecionar para a tela de login caso receba código 403
+          localStorage.clear();
           this.router.navigate(['/login']);
         }
         return throwError(error);
