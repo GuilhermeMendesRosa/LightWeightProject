@@ -26,15 +26,15 @@ public class GoalService {
         return goal;
     }
 
+    public GoalDTO findGoalDTOById(Long id) {
+        return this.repository.findGoalDTOById(id);
+    }
+
     public Goal changeGoalToAccomplished(Long id) {
         Goal goal = this.repository.findGoalById(id);
         goal.setAccomplished(Boolean.TRUE);
 
         return goal;
-    }
-
-    public GoalDTO findGoalDTOById(Long id) {
-        return this.repository.findGoalDTOById(id);
     }
 
 }

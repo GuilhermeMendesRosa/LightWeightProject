@@ -37,4 +37,5 @@ public class WorkoutSessionService {
 
         return workoutSessionDTO;
     }
+
 }

@@ -21,6 +21,16 @@ public class WorkoutController {
     @Autowired
     private WorkoutService workoutService;
 
+    @PostMapping()
+    @Transactional
+    public ResponseEntity createWorkout(@RequestBody WorkoutDTO workoutDTO, UriComponentsBuilder uriComponentsBuilder) {
+        Workout workout = this.workoutService.create(workoutDTO);
+
+        URI uri = uriComponentsBuilder.path("/workout/{id}").buildAndExpand(workout.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(workoutDTO);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity findWorkout(@PathVariable Long id) {
         WorkoutDTO workoutDTO = this.workoutService.findWorkoutDTOById(id);
@@ -35,16 +45,6 @@ public class WorkoutController {
         List<WorkoutDTO> workoutDTOS = this.workoutService.findByUserId(userId);
 
         return ResponseEntity.ok(workoutDTOS);
-    }
-
-    @PostMapping()
-    @Transactional
-    public ResponseEntity createWorkout(@RequestBody WorkoutDTO workoutDTO, UriComponentsBuilder uriComponentsBuilder) {
-        Workout workout = this.workoutService.create(workoutDTO);
-
-        URI uri = uriComponentsBuilder.path("/workout/{id}").buildAndExpand(workout.getId()).toUri();
-
-        return ResponseEntity.created(uri).body(workoutDTO);
     }
 
     @PutMapping("/{workoutId}")

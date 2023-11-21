@@ -24,6 +24,19 @@ public class WorkoutService {
     @Autowired
     private ExerciseService exerciseService;
 
+    public Workout create(WorkoutDTO workoutDTO) {
+        Workout workout = new Workout();
+        workout.setName(workoutDTO.getName());
+        workout.setDescription(workoutDTO.getDescription());
+        workout.setUser(LightWeightUtils.getLoggedUser());
+
+        this.workoutRepository.save(workout);
+
+        this.bindWorkoutCompounds(workout, workoutDTO);
+
+        return workout;
+    }
+
     public Workout findById(Long id) {
         return this.workoutRepository.findWorkoutById(id);
     }
@@ -47,17 +60,20 @@ public class WorkoutService {
         return workoutDTOS;
     }
 
-    public Workout create(WorkoutDTO workoutDTO) {
-        Workout workout = new Workout();
+    public void delete(Long workoutId) {
+        Workout workout = this.workoutRepository.findWorkoutById(workoutId);
+        this.clearWorkoutCompounds(workoutId);
+
+        this.workoutRepository.delete(workout);
+    }
+
+    public void editWorkout(Long workoutId, WorkoutDTO workoutDTO) {
+        Workout workout = this.workoutRepository.findWorkoutById(workoutId);
         workout.setName(workoutDTO.getName());
         workout.setDescription(workoutDTO.getDescription());
-        workout.setUser(LightWeightUtils.getLoggedUser());
 
-        this.workoutRepository.save(workout);
-
-        bindWorkoutCompounds(workout, workoutDTO);
-
-        return workout;
+        this.clearWorkoutCompounds(workoutId);
+        this.bindWorkoutCompounds(workout, workoutDTO);
     }
 
     private void bindWorkoutCompounds(Workout workout, WorkoutDTO workoutDTO) {
@@ -75,22 +91,6 @@ public class WorkoutService {
 
             this.workoutCompoundRepository.save(workoutCompound);
         }
-    }
-
-    public void delete(Long workoutId) {
-        Workout workout = this.workoutRepository.findWorkoutById(workoutId);
-        this.clearWorkoutCompounds(workoutId);
-
-        this.workoutRepository.delete(workout);
-    }
-
-    public void editWorkout(Long workoutId, WorkoutDTO workoutDTO) {
-        Workout workout = this.workoutRepository.findWorkoutById(workoutId);
-        workout.setName(workoutDTO.getName());
-        workout.setDescription(workoutDTO.getDescription());
-
-        this.clearWorkoutCompounds(workoutId);
-        this.bindWorkoutCompounds(workout, workoutDTO);
     }
 
     private void clearWorkoutCompounds(Long workoutId) {
