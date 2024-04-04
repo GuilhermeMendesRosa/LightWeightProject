@@ -100,4 +100,8 @@ public class WorkoutService {
         }
     }
 
+    public List<WorkoutCompoundDTO> findAllWorkoutCompounds() {
+        return this.workoutCompoundRepository.findAll().stream().map(WorkoutCompoundDTO::new).toList();
+    }
+
 }
