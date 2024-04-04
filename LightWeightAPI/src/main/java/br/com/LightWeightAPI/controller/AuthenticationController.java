@@ -35,7 +35,7 @@ public class AuthenticationController {
     public ResponseEntity createUser(@Valid @RequestBody UserDTO userDTO) {
         User user = this.userService.createUser(userDTO);
 
-        return ResponseEntity.ok(user.getLogin());
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping
