@@ -116,7 +116,7 @@ public class WorkoutController {
 
         Workout workout = this.workoutService.create(workoutDTO);
 
-z        URI uri = uriComponentsBuilder.path("/workout/{id}").buildAndExpand(workout.getId()).toUri();
+        URI uri = uriComponentsBuilder.path("/workout/{id}").buildAndExpand(workout.getId()).toUri();
 
         return ResponseEntity.created(uri).body(workoutDTO);
     }
