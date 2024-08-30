@@ -1,12 +1,12 @@
 package br.com.LightWeightAPI.domain.goal;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
 public class GoalDTO implements Serializable {
 
     private Long userId;

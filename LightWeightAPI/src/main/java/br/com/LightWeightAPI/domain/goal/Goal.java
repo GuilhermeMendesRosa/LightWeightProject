@@ -3,15 +3,17 @@ package br.com.LightWeightAPI.domain.goal;
 import br.com.LightWeightAPI.domain.exercise.Exercise;
 import br.com.LightWeightAPI.domain.user.User;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Table(name = "goals")
 @Entity(name = "Goal")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Getter
-@Setter
+@Data
 public class Goal {
 
     @Id

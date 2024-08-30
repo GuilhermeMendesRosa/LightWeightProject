@@ -2,15 +2,17 @@ package br.com.LightWeightAPI.domain.workout;
 
 import br.com.LightWeightAPI.domain.user.User;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Table(name = "workouts")
 @Entity(name = "Workout")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Getter
-@Setter
+@Data
 public class Workout {
 
     @Id

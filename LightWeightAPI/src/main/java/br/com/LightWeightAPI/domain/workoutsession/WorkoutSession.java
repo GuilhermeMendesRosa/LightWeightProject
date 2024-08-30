@@ -12,8 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Getter
-@Setter
+@Data
 public class WorkoutSession {
 
     @Id

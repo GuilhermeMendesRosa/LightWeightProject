@@ -3,15 +3,17 @@ package br.com.LightWeightAPI.domain.workoutcompound;
 import br.com.LightWeightAPI.domain.exercise.Exercise;
 import br.com.LightWeightAPI.domain.workout.Workout;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Table(name = "workout_compounds")
 @Entity(name = "WorkoutCompound")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Getter
-@Setter
+@Data
 public class WorkoutCompound {
 
     @Id

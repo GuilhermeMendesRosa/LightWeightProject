@@ -1,10 +1,8 @@
 package br.com.LightWeightAPI.domain.exercise;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class ExerciseDTO {
 
     private String name;

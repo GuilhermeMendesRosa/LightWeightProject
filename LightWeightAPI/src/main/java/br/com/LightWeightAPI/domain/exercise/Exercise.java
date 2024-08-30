@@ -8,8 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Getter
-@Setter
+@Data
 public class Exercise {
 
     @Id
@@ -19,7 +18,7 @@ public class Exercise {
 
     private String name;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private MuscularGroupEnum muscularGroup;
 
 }
