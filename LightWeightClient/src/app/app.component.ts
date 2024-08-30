@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {CommonModule} from '@angular/common';
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 
 import {
   PoMenuItem,
@@ -8,7 +8,9 @@ import {
   PoPageModule,
   PoToolbarModule,
 } from '@po-ui/ng-components';
-import {PoPageLoginModule} from "@po-ui/ng-templates";
+import {PoPageLogin, PoPageLoginModule} from "@po-ui/ng-templates";
+import {AuthService} from "./services/auth.service";
+import {User} from "./models/User";
 
 @Component({
   selector: 'app-root',
@@ -25,11 +27,25 @@ import {PoPageLoginModule} from "@po-ui/ng-templates";
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+  constructor(private authService: AuthService) {
+  }
+
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Home', action: this.onClick.bind(this) },
+    {label: 'Home', action: this.onClick.bind(this)},
   ];
 
   private onClick() {
     alert('Clicked in menu item');
+  }
+
+  loginSubmit(formData: PoPageLogin) {
+    const user: User = {
+      login: formData.login,
+      password: formData.password
+    };
+    this.authService.login(user).subscribe(value => {
+      console.log(value)
+    })
   }
 }
