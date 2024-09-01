@@ -7,12 +7,12 @@ import {User} from "../models/User";
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly API_URL = '/api';
+  private readonly API_URL = 'http://localhost:8080'
 
   constructor(private http: HttpClient) {
   }
 
   public login(user: User): Observable<any> {
-    return this.http.post(`${this.API_URL}/login`, user);
+    return this.http.post(`${this.API_URL}/auth/login`, user);
   }
 }
