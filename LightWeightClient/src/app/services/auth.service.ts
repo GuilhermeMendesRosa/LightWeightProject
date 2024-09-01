@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from "../models/User";
+import {Token} from "../models/Token";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  public login(user: User): Observable<any> {
-    return this.http.post(`${this.API_URL}/auth/login`, user);
+  public login(user: User): Observable<Token> {
+    return this.http.post<Token>(`${this.API_URL}/auth/login`, user);
   }
 }
