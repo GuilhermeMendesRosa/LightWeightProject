@@ -1,4 +1,4 @@
-# Light Weight Project
+# [Light Weight Project](https://mendesworkspace.notion.site/Light-Weight-Project-16a1e620f334428983dd46d3dcc6ab3f)
 
 > Plataforma para treinos e tracking de progessão na academia.
 > 
